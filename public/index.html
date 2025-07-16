@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlquimiaTechnologic - Transformando tu día a día</title>
+    <meta name="description" content="En AlquimiaTechnologic nos especializamos en ofrecerte productos y servicios de alta calidad que transformarán tu día a día. Software personalizado, aceites esenciales, figuras en yeso y suscripciones premium.">
+    <link rel="stylesheet" href="/css/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <a href="/" class="logo">
+                        <i class="fas fa-flask"></i>
+                        <span>AlquimiaTechnologic</span>
+                    </a>
+                </div>
+                
+                <div class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="/" class="nav-link active">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/productos" class="nav-link">Productos</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle">Categorías</a>
+                            <div class="dropdown-menu" id="categoriesDropdown">
+                                <!-- Se llenarán dinámicamente -->
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/acerca-de" class="nav-link">Acerca de</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/contacto" class="nav-link">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-actions">
+                    <button class="search-toggle" id="searchToggle">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a href="/carrito" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Search Bar -->
+        <div class="search-bar" id="searchBar">
+            <div class="container">
+                <div class="search-form">
+                    <input type="text" id="searchInput" placeholder="¿Qué estás buscando?">
+                    <button type="submit" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Transformando tu día a día con 
+                    <span class="highlight">alta calidad</span>
+                </h1>
+                <p class="hero-description">
+                    En AlquimiaTechnologic nos especializamos en ofrecerte productos y servicios de alta calidad que transformarán tu día a día. Desde soluciones de software personalizadas hasta aceites esenciales premium.
+                </p>
+                <div class="hero-actions">
+                    <a href="/productos" class="btn btn-primary">
+                        Explorar Productos
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="/acerca-de" class="btn btn-outline">
+                        Conoce Más
+                        <i class="fas fa-play"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestras Categorías</h2>
+                <p class="section-description">Descubre nuestra amplia gama de productos y servicios</p>
+            </div>
+            
+            <div class="categories-grid" id="categoriesGrid">
+                <!-- Se llenarán dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Productos Destacados</h2>
+                <p class="section-description">Los productos más populares y recomendados</p>
+            </div>
+            
+            <div class="products-grid" id="featuredProductsGrid">
+                <!-- Se llenarán dinámicamente -->
+            </div>
+            
+            <div class="section-footer">
+                <a href="/productos" class="btn btn-outline">
+                    Ver Todos los Productos
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">¿Por qué elegirnos?</h2>
+                <p class="section-description">Razones que nos hacen únicos</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="service-title">Software Personalizado</h3>
+                    <p class="service-description">
+                        Desarrollamos aplicaciones y sistemas a medida que optimizan la operación de tu negocio.
+                    </p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="service-title">Aceites Esenciales Premium</h3>
+                    <p class="service-description">
+                        Elaborados con los mejores ingredientes naturales para tu bienestar físico y mental.
+                    </p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="service-title">Figuras Artesanales</h3>
+                    <p class="service-description">
+                        Figuras en yeso exclusivas, hechas a mano con esmero para tu hogar u oficina.
+                    </p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="service-title">Suscripciones Premium</h3>
+                    <p class="service-description">
+                        Acceso ilimitado a plataformas de contenido de primer nivel sin restricciones.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2 class="newsletter-title">Mantente al día</h2>
+                    <p class="newsletter-description">
+                        Suscríbete a nuestro newsletter y recibe las últimas novedades y ofertas especiales.
+                    </p>
+                </div>
+                
+                <form class="newsletter-form" id="newsletterForm">
+                    <div class="form-group">
+                        <input type="email" id="newsletterEmail" placeholder="Tu email" required>
+                        <button type="submit" class="btn btn-primary">
+                            Suscribirse
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <a href="/" class="logo">
+                            <i class="fas fa-flask"></i>
+                            <span>AlquimiaTechnologic</span>
+                        </a>
+                        <p class="footer-description">
+                            Transformando tu día a día con productos y servicios de alta calidad.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="/productos">Productos</a></li>
+                        <li><a href="/acerca-de">Acerca de</a></li>
+                        <li><a href="/contacto">Contacto</a></li>
+                        <li><a href="/terminos-condiciones">Términos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Categorías</h3>
+                    <ul class="footer-links" id="footerCategories">
+                        <!-- Se llenarán dinámicamente -->
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contacto</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> contacto@alquimiatechnologic.com</p>
+                        <p><i class="fas fa-phone"></i> +57 300 123 4567</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 AlquimiaTechnologic. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html> 

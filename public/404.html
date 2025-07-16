@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página No Encontrada - AlquimiaTechnologic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+
+        .error-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .error-title {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .error-message {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .search-box {
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e1e5e9;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .suggestions {
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .suggestions h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .suggestion-links {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .suggestion-link {
+            color: #667eea;
+            text-decoration: none;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .suggestion-link:hover {
+            color: #764ba2;
+            transform: translateX(5px);
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(10px) rotate(240deg); }
+        }
+
+        @media (max-width: 768px) {
+            .error-container {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .error-code {
+                font-size: 6rem;
+            }
+
+            .error-title {
+                font-size: 1.5rem;
+            }
+
+            .navigation-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        .loading {
+            display: none;
+        }
+
+        .loading.show {
+            display: inline-block;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-title">¡Oops! Página No Encontrada</h1>
+        <p class="error-message">
+            La página que buscas no existe o ha sido movida. 
+            No te preocupes, te ayudamos a encontrar lo que necesitas.
+        </p>
+
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="¿Qué estás buscando?" id="searchInput">
+            <button class="search-btn" onclick="performSearch()">
+                <span class="loading" id="loading">⟳</span>
+                <span id="searchText">🔍</span>
+            </button>
+        </div>
+
+        <div class="navigation-buttons">
+            <a href="/" class="btn btn-primary">
+                🏠 Ir al Inicio
+            </a>
+            <a href="/productos" class="btn btn-secondary">
+                🛍️ Ver Productos
+            </a>
+        </div>
+
+        <div class="suggestions">
+            <h3>Páginas Populares</h3>
+            <div class="suggestion-links">
+                <a href="/productos" class="suggestion-link">
+                    📦 Todos los Productos
+                </a>
+                <a href="/categoria/software-personalizado" class="suggestion-link">
+                    💻 Software Personalizado
+                </a>
+                <a href="/categoria/aceites-esenciales" class="suggestion-link">
+                    🌿 Aceites Esenciales
+                </a>
+                <a href="/categoria/figuras-yeso" class="suggestion-link">
+                    🎨 Figuras en Yeso
+                </a>
+                <a href="/categoria/suscripciones-premium" class="suggestion-link">
+                    ⭐ Suscripciones Premium
+                </a>
+                <a href="/contacto" class="suggestion-link">
+                    📞 Contacto
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para realizar búsqueda
+        function performSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const loading = document.getElementById('loading');
+            const searchText = document.getElementById('searchText');
+            const query = searchInput.value.trim();
+
+            if (!query) {
+                alert('Por favor ingresa algo para buscar');
+                return;
+            }
+
+            // Mostrar loading
+            loading.classList.add('show');
+            searchText.style.display = 'none';
+
+            // Simular búsqueda (en producción esto iría a la API)
+            setTimeout(() => {
+                // Redirigir a la página de búsqueda
+                window.location.href = `/buscar?q=${encodeURIComponent(query)}`;
+            }, 1000);
+        }
+
+        // Permitir búsqueda con Enter
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // Animación de entrada para elementos
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.error-container > *');
+            elements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    element.style.transition = 'all 0.6s ease';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // Función para volver atrás
+        function goBack() {
+            if (document.referrer) {
+                window.history.back();
+            } else {
+                window.location.href = '/';
+            }
+        }
+
+        // Agregar botón de volver atrás si hay historial
+        if (document.referrer) {
+            const backButton = document.createElement('a');
+            backButton.href = '#';
+            backButton.className = 'btn btn-secondary';
+            backButton.innerHTML = '⬅️ Volver Atrás';
+            backButton.onclick = goBack;
+            
+            const navigationButtons = document.querySelector('.navigation-buttons');
+            navigationButtons.appendChild(backButton);
+        }
+
+        // Analytics (si está disponible)
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                page_title: '404 Error',
+                page_location: window.location.href
+            });
+        }
+    </script>
+</body>
+</html> 
